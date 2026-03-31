@@ -4,12 +4,15 @@
 
 \## 실습 환경
 
-* OS: Windows 11
-* Shell: Git Bash
-* Docker : 29.2.0
-* Git: 2.53.0.
+OS: Windows 11
 
-\- 작성일: 2025-01-31
+Shell: Git Bash
+
+Docker : 29.2.0
+
+Git: 2.53.0.
+
+\- 작성일: 2026-03-31
 
 
 
@@ -39,7 +42,9 @@ user.name과 user.email이 정상 등록된 것을 확인했습니다.
 
 cd \~ 로 홈 폴더 이동 후 dev-workstation 폴더 생성 및 이동했습니다.
 
-pwd 결과: /c/Users/이송하/dev-workstatio
+pwd 결과: /c/Users/이송하/dev-workstation
+
+
 
 !\[pwd 결과](images/phase1-pwd.png)
 
@@ -164,6 +169,8 @@ git remote add origin 으로 GitHub 저장소와 연결했습니다.
 \- 644 = 소유자(4+2+0) / 그룹(4+0+0) / 기타(4+0+0)
 
 \- 755 = 소유자(4+2+1) / 그룹(4+0+1) / 기타(4+0+1)
+
+
 
 !\[ 폴더 권한 변경 ](images/phase1-folder.png)
 
