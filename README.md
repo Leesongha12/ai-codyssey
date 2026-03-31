@@ -2,9 +2,9 @@
 
 ## 1. 실행 환경
 - OS:
-- Shell:
-- Docker:
-- Git:
+- Shell: bash
+- Docker: 29.2.0
+- Git: 2.53.0.
 
 ## 2. 수행 체크리스트
 [ ] 터미널 조작
