@@ -174,3 +174,7 @@ git remote add origin 으로 GitHub 저장소와 연결했습니다.
 
 !\[ 폴더 권한 변경 ](images/phase1-folder.png)
 
+
+
+
+
