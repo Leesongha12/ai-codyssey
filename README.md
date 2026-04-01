@@ -187,4 +187,44 @@ This message shows that your installation appears to be working correctly.
 
 설명: 최종 작업 디렉토리 구조
 
+
+## 8. ubuntu 컨테이너 실행 및 내부 진입
+
+### 실행 명령
+```bash
+docker run -it --name ubuntu-test ubuntu bash
+```
+
+### 내부 명령 실행
+```bash
+ls
+echo "hello ubuntu"
+pwd
+```
+
+### 종료 후 상태 확인
+```bash
+exit
+docker ps -a
+```
+
+### 설명
+- ubuntu 이미지를 다운로드하고 컨테이너를 실행하였다.
+- 컨테이너 내부에서 `ls`, `echo`, `pwd` 명령을 실행하였다.
+- `exit` 후 `docker ps -a`를 통해 컨테이너 상태가 Exited로 변경된 것을 확인하였다.
+- 전체 실행 과정을 하나의 흐름으로 확인하였다.
+
+### 실행 결과
+![ubuntu container full process](images/ubuntu-container-full-process.png)
+
+### attach와 exec 차이
+- `attach`: 실행 중인 컨테이너의 표준 입출력에 연결
+- `exec`: 실행 중인 컨테이너에 새로운 프로세스를 실행
+- 실습에서는 `exec` 방식이 더 안전하고 직관적이었다.
+
+
+
+
+
+
 ![project structure](images/project-structure.png)
