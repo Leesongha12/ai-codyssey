@@ -251,5 +251,80 @@ docker ps -a
 ### attach와 exec 차이
 
 * `attach`: 실행 중인 컨테이너의 표준 입출력에 연결
+
+
+---
+
+## 9. Dockerfile 기반 커스텀 웹 서버 이미지 제작
+
+### 베이스 이미지 선택
+- `nginx:alpine` 이미지를 베이스로 선택하였다.
+- 정적 HTML 파일만 교체하는 방식으로 커스텀 이미지를 제작하였다.
+
+---
+
+### Dockerfile
+```dockerfile
+FROM nginx:alpine
+
+LABEL org.opencontainers.image.title="codyssey-web"
+ENV APP_ENV=dev
+
+COPY app/index.html /usr/share/nginx/html/index.html
+```
+
+---
+
+### 웹 서버 소스 코드
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Codyssey Week 1</title>
+</head>
+<body>
+  <h1>안녕하세요, Codyssey 1주차 과제입니다.</h1>
+  <p>Dockerfile 기반 커스텀 이미지 실행 성공</p>
+</body>
+</html>
+```
+
+---
+
+### 빌드 및 실행 명령
+```bash
+docker build -t codyssey-web:1.0 .
+docker run -d -p 8080:80 --name codyssey-web-container codyssey-web:1.0
+docker ps
+docker logs codyssey-web-container
+```
+
+---
+
+### 설명
+- NGINX 웹 서버 이미지를 기반으로 커스텀 이미지를 생성하였다.
+- `COPY` 명령어를 통해 HTML 파일을 컨테이너 내부로 복사하였다.
+- `-p 8080:80` 옵션으로 로컬 포트와 컨테이너 포트를 연결하였다.
+- 브라우저 접속을 통해 웹 서버 정상 실행을 확인하였다.
+
+---
+
+### 실행 결과
+
+#### 1) 이미지 빌드 성공
+![docker build](images/docker-build-success.png)
+
+#### 2) 컨테이너 실행 및 포트 매핑 확인
+![docker run](images/docker-run-web.png)
+
+#### 3) 컨테이너 로그 확인
+![docker logs](images/docker-web-logs.png)
+
+#### 4) 브라우저 접속 결과
+![browser](images/port-mapping-browser.png)
+
+---
+  
 * `exec`: 실행 중인 컨테이너에 새로운 프로세스를 실행
 * 실습에서는 `exec` 방식이 더 안전하고 직관적이었다.
