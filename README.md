@@ -340,5 +340,34 @@ docker logs codyssey-web-container
 ### 설명
 - 로컬 `app` 폴더를 컨테이너에 연결
 - 브라우저에서 수정한 HTML이 정상 출력됨을 확인
+
+## 11. Docker 볼륨 영속성 검증
+
+### 실행 명령
+```bash
+docker volume create mydata
+docker run -d --name vol-test -v mydata:/data ubuntu sleep infinity
+docker exec -it vol-test bash -lc "echo hi > /data/hello.txt && cat /data/hello.txt"
+docker rm -f vol-test
+docker run -d --name vol-test2 -v mydata:/data ubuntu sleep infinity
+docker exec -it vol-test2 bash -lc "cat /data/hello.txt"
+```
+
+### 설명
+- Docker 볼륨 `mydata`를 생성하였다.
+- 첫 번째 컨테이너에서 `/data/hello.txt` 파일을 생성하고 데이터를 저장하였다.
+- 컨테이너를 삭제한 뒤 동일한 볼륨을 연결한 새로운 컨테이너를 실행하였다.
+- 삭제 이후에도 데이터가 유지되는 것을 확인하였다.
+
+### 실행 결과
+
+#### 1) 볼륨 생성
+![docker volume create](images/docker-volume-create.png)
+
+#### 2) 데이터 생성 및 확인
+![docker volume before delete](images/docker-volume-before-delete.png)
+
+#### 3) 컨테이너 삭제 후 데이터 유지 확인
+![docker volume after delete](images/docker-volume-after-delete.png) 
 * `exec`: 실행 중인 컨테이너에 새로운 프로세스를 실행
 * 실습에서는 `exec` 방식이 더 안전하고 직관적이었다.
