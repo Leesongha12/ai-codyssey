@@ -62,6 +62,39 @@ user.name과 user.email이 정상 등록된 것을 확인했습니다.
 
 ### 8. 권한 숫자 해석 정리
 | 표기 | 숫자 | 권한 설명 |
+
+
+
+## Git 파일 추적 상태 확인
+
+### 문제 상황
+```bash
+git status
+```
+
+출력:
+```bash
+Untracked files:
+  images/project-structure.png
+```
+
+### 원인
+- 새로 생성한 파일은 Git이 자동으로 추적하지 않는다.
+
+### 해결 방법
+```bash
+git add images/project-structure.png
+git commit -m "Add: project structure screenshot"
+git push origin master
+```
+
+### 설명
+- `git add`: 파일을 Git 추적 대상으로 등록
+- `git commit`: 변경사항 저장
+- `git push`: GitHub에 업로드
+
+증거:
+- images/git-untracked.png
 |:---:|:---:|:--- |
 | **rw-r--r--** | 644 | 소유자(읽기/쓰기), 그룹/기타(읽기만) |
 | **rwxr-xr-x** | 755 | 소유자(모든권한), 그룹/기타(읽기/실행) |
