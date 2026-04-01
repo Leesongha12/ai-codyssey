@@ -99,4 +99,34 @@ git push origin master
 | **rw-r--r--** | 644 | 소유자(읽기/쓰기), 그룹/기타(읽기만) |
 | **rwxr-xr-x** | 755 | 소유자(모든권한), 그룹/기타(읽기/실행) |
 
+## Phase 4: hello-world 컨테이너 실행
+
+### 실행 명령
+```bash
+docker run hello-world
+```
+
+### 출력 결과
+```bash
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+...
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+```
+
+### 설명
+- Docker Hub에서 `hello-world` 이미지를 다운로드하여 실행하였다.
+- Docker 클라이언트와 서버가 정상적으로 통신하며 컨테이너 실행이 가능함을 확인하였다.
+
+### 동작 과정 이해
+1. Docker client가 daemon에 요청을 보냄
+2. daemon이 Docker Hub에서 이미지 다운로드
+3. 컨테이너 생성 및 실행
+4. 결과를 터미널로 출력
+
+증거:
+- images/docker-hello-world.png
+
+
 ![폴더 권한 변경](images/phase1-folder.png)
