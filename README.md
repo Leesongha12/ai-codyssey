@@ -325,6 +325,20 @@ docker logs codyssey-web-container
 ![browser](images/port-mapping-browser.png)
 
 ---
-  
+
+## 10. 바인드 마운트 반영 확인
+
+### 실행 및 문제 확인
+![bind mount run](images/bind-mount-run.png)
+
+### 문제 상황
+- Git Bash 환경에서 경로 변환 문제로 인해 `/usr/share/nginx/html` 접근 실패 발생
+
+### 해결 결과
+![bind mount success](images/bind-mount-success.png)
+
+### 설명
+- 로컬 `app` 폴더를 컨테이너에 연결
+- 브라우저에서 수정한 HTML이 정상 출력됨을 확인
 * `exec`: 실행 중인 컨테이너에 새로운 프로세스를 실행
 * 실습에서는 `exec` 방식이 더 안전하고 직관적이었다.
