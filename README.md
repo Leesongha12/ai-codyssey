@@ -215,7 +215,8 @@ docker ps -a
 - 전체 실행 과정을 하나의 흐름으로 확인하였다.
 
 ### 실행 결과
-![ubuntu container full process](images/ubuntu-full-process.png)
+
+![ubuntu container full process](images/ubuntu-container-full-process.png)
 
 ### attach와 exec 차이
 - `attach`: 실행 중인 컨테이너의 표준 입출력에 연결
