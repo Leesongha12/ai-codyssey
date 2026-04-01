@@ -187,8 +187,12 @@ This message shows that your installation appears to be working correctly.
 
 설명: 최종 작업 디렉토리 구조
 
+![project structure](images/project-structure.png)
+
+---
 
 ## 8. ubuntu 컨테이너 실행 및 내부 진입
+
 
 ### 실행 명령
 ```bash
